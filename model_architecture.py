@@ -29,8 +29,6 @@ def get_model_and_criterion():
                           "--in_content_folder", "inputs/content",
                           "--style_folder", "inputs/style",
                           "--output_dir", "outputs",
-        ## TODO: REMOVE
-        "--device", "mps"
     ])
     model, criterion, postprocessors = build_model(args)
     return model, criterion
