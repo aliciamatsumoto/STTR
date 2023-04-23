@@ -1,6 +1,5 @@
 """
 Consolidate the model architecture definition to allow loading elsewhere.
-Author: Alicia Matsumoto
 """
 import argparse
 import torch
@@ -13,24 +12,26 @@ def get_model_and_criterion():
     parser = argparse.ArgumentParser(
         'DETR training and evaluation script', parents=[get_args_parser()])
     args = parser.parse_args([
-                          "--batch_size","1",
-                          "--style_loss_coef","10",
-                          "--fold_k","5",
-                          "--lr_backbone","1e-5",
-                          "--lr","1e-5",
-                          "--enc_layers","6",
-                          "--dec_layers","6",
-                          "--model_type","nofold",
-                          "--enorm","--dnorm","--tnorm",
-                          "--cbackbone_layer","2","--sbackbone_layer","4",
-                          
-                          "--dataset_file","demo",
-                          "--resume","checkpoint_model/checkpoint0005.pth"  ,
-                          "--img_size","512",
-                          "--in_content_folder","inputs/content",
-                          "--style_folder","inputs/style",
-                          "--output_dir","outputs",
-                             ])
+        "--batch_size", "1",
+        "--style_loss_coef", "10",
+        "--fold_k", "5",
+        "--lr_backbone", "1e-5",
+        "--lr", "1e-5",
+        "--enc_layers", "6",
+        "--dec_layers", "6",
+        "--model_type", "nofold",
+        "--enorm", "--dnorm", "--tnorm",
+        "--cbackbone_layer", "2", "--sbackbone_layer", "4",
+
+        "--dataset_file", "demo",
+                          "--resume", "checkpoint_model/checkpoint0005.pth",
+                          "--img_size", "512",
+                          "--in_content_folder", "inputs/content",
+                          "--style_folder", "inputs/style",
+                          "--output_dir", "outputs",
+        ## TODO: REMOVE
+        "--device", "mps"
+    ])
     model, criterion, postprocessors = build_model(args)
     return model, criterion
 
