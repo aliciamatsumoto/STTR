@@ -1,0 +1,8 @@
+einops
+torch
+torchvision
+torchviz
+numpy
+matplotlib
+matplotlib-inline
+gdown
