@@ -197,7 +197,7 @@ def main(args, video_frames_path, styles_path):
         },
     ]
 
-    lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, args.lr_drop)
+    # lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, args.lr_drop)
 
     dataset_val = build_dataset('val', args)
 
